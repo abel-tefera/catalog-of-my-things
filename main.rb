@@ -10,14 +10,14 @@ def manage_selection(app, option)
   tasks = {
     1 => :list_books,
     2 => :list_albums,
-    3 => :list_movies,
+    3 => :list_games,
     4 => :list_genres,
     5 => :list_labels,
     6 => :list_authors,
     7 => :list_sources,
     8 => :add_book,
     9 => :add_album,
-    10 => :add_movie,
+    10 => :add_game,
     11 => :exit,
     default: :invalid_option
   }

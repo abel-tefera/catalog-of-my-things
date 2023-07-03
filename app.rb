@@ -1,10 +1,10 @@
 class App
-  attr_accessor :books, :albums, :movies
+  attr_accessor :books, :albums, :games
 
   def initialize
     @books = []
     @albums = []
-    @movies = []
+    @games = []
   end
 
   def list_books
@@ -15,7 +15,7 @@ class App
     puts 'Feature loading...'
   end
 
-  def list_movies
+  def list_games
     puts 'Feature loading...'
   end
 
@@ -43,7 +43,7 @@ class App
     puts 'Feature loading...'
   end
 
-  def add_movie
+  def add_game
     puts 'Feature loading...'
   end
 
@@ -55,14 +55,14 @@ class App
     puts 'Please choose an option from the following: '
     puts '1 - List all books'
     puts '2 - List all music albums'
-    puts '3 - List all movies'
+    puts '3 - List all games'
     puts '4 - List all genres'
     puts '5 - List all labels'
     puts '6 - List all authors'
     puts '7 - List all sources'
     puts '8 - Add a book'
     puts '9 - Add a music album'
-    puts '10 - Add a movie'
+    puts '10 - Add a game'
     puts '11 - Exit'
   end
 end
