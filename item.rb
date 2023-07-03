@@ -6,26 +6,19 @@ class Item
     @id = Random.rand(1..1000)
     @publish_date = publish_date
     @archived = archived
-
   end
 
-  def add_source=(source)
-  end
+  def add_source=(source) end
 
-  def add_label=(label)
-  end
+  def add_label=(label) end
 
-  def add_genre=(genre)
-  end
+  def add_genre=(genre) end
 
-  def add_author=(author)
-  end
+  def add_author=(author) end
 
-  def move_to_archive()
-  end
+  def move_to_archive() end
 
   private
 
-  def can_be_archived?()
-  end
+  def can_be_archived?() end
 end
