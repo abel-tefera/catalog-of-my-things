@@ -44,7 +44,6 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
@@ -52,6 +51,7 @@
 ### Prerequisites
 
 In order to run this project you need:
+
 - Installed Git.
 - Installed Ruby
 - Installed RSpec gem
@@ -59,28 +59,31 @@ In order to run this project you need:
 - Open the command prompt in the created directory.
 - On the terminal run this command git clone https://github.com/abel-tefera/catalog-of-my-things.git
 
-
-
 ### Setup
 
 Clone this repository to your desired folder:
 
-```sh 
+```sh
 git clone https://github.com/Abel-tefera/catalog-of-my-things.git
-  ```
-  ```sh 
-  cd catalog-of-my-things
-  ```
-  ```sh 
-  bundle install
-  ```
-  ```sh
-  gem install rspec
-  ```
+```
+
+```sh
+cd catalog-of-my-things
+```
+
+```sh
+bundle install
+```
+
+```sh
+gem install rspec
+```
+
 ### Run Tests
-  ```sh 
-  rspec spec
-  ```
+
+```sh
+rspec spec
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -89,16 +92,25 @@ git clone https://github.com/Abel-tefera/catalog-of-my-things.git
 ## 👥 Authors <a name="authors"></a>
 
 ### 👤 **Abel tefera**:
+
 - GitHub: [@abel-tefera](https://github.com/abel-tefera)
 - Twitter: [@twitter](https://twitter.com/abelteferabelay)
 - LinkedIn: [@linkedin](https://www.linkedin.com/in/abel-t-belay/)
 
 ### 👤 **Harriet Oteng**:
+
 - GitHub: [@githubhandle](https://github.com/newhoteng)
 - Twitter: [@twitterhandle](https://twitter.com/HarrietOteng1)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/harriet-oteng/)
-  
+
+👤 **Fatihah Oduwole**
+
+- GitHub: [@jeddaa](https://github.com/jeddaa)
+- Twitter: [@\_jeddaah](https://twitter.com/_jeddaah)
+- LinkedIn: [Fatihah oduwole](https://www.linkedin.com/in/fatihahoduwole/)
+
 # 🔭 Future Features:
+
 - Option to remove selected book.
 - Option to add genre to selected book.
 
@@ -113,6 +125,7 @@ Feel free to check the [issues page](../../issues/).
 <!-- SUPPORT -->
 
 ## ⭐️ Show your support <a name="support"></a>
+
 If you liked this project, give it a ⭐️ and kindly send to me an e-mail expressing it, it would make our day and fuel our motivation.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -124,7 +137,6 @@ If you liked this project, give it a ⭐️ and kindly send to me an e-mail expr
 We would like to thank Microverse team for this journey.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 <!-- LICENSE -->
 
