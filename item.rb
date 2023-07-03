@@ -8,13 +8,21 @@ class Item
     @archived = archived
   end
 
-  def add_source=(source) end
+  def add_source=(source)
+    @source = source
+  end
 
-  def add_label=(label) end
+  def add_label=(label)
+    @label = label
+  end
 
-  def add_genre=(genre) end
+  def add_genre=(genre)
+    @genre = genre
+  end
 
-  def add_author=(author) end
+  def add_author=(author)
+    @author = author
+  end
 
   def move_to_archive() end
 
