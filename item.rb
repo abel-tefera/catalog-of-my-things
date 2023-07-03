@@ -16,9 +16,16 @@ class Item
 
   def add_author=(author) end
 
-  def move_to_archive() end
+  def move_to_archive()
+    return unless can_be_archived?
+
+    @archived = true
+  end
 
   private
 
-  def can_be_archived?() end
+  def can_be_archived?()
+    cuttoff_date = 10.years.ago
+    @publish_date < cuttoff_date
+  end
 end
