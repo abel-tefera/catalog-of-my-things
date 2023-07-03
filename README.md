@@ -92,6 +92,11 @@ git clone https://github.com/Abel-tefera/catalog-of-my-things.git
 - GitHub: [@abel-tefera](https://github.com/abel-tefera)
 - Twitter: [@twitter](https://twitter.com/abelteferabelay)
 - LinkedIn: [@linkedin](https://www.linkedin.com/in/abel-t-belay/)
+
+### 👤 **Harriet Oteng**:
+- GitHub: [@githubhandle](https://github.com/newhoteng)
+- Twitter: [@twitterhandle](https://twitter.com/HarrietOteng1)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/harriet-oteng/)
   
 # 🔭 Future Features:
 - Option to remove selected book.
