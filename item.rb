@@ -1,3 +1,4 @@
+require 'date'
 class Item
   attr_reader :id, :archived, :genre, :author, :source, :label
   attr_accessor :publish_date
@@ -16,9 +17,17 @@ class Item
 
   def add_author=(author) end
 
-  def move_to_archive() end
+  def move_to_archive()
+    return unless can_be_archived?
+
+    @archived = true
+  end
 
   private
 
-  def can_be_archived?() end
+  def can_be_archived?()
+    current_date = Date.today
+    cuttoff_date = current_date - (10 * 365)
+    @publish_date < cuttoff_date
+  end
 end
