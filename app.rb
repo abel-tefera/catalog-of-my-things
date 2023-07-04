@@ -1,4 +1,5 @@
 require_relative 'books_management'
+require_relative 'music_album_management'
 
 class App
   attr_accessor :books, :albums, :games
@@ -8,6 +9,8 @@ class App
     @albums = []
     @games = []
     @labels = []
+    @genres = []
+    @authors = []
   end
 
   def list_albums
@@ -30,9 +33,9 @@ class App
     puts 'Feature loading...'
   end
 
-  def add_album
-    puts 'Feature loading...'
-  end
+  # def add_album
+  #   puts 'Feature loading...'
+  # end
 
   def add_game
     puts 'Feature loading...'
@@ -41,6 +44,7 @@ class App
   def fetch_json_files
     puts 'Loading json files..'
     load_books_json
+    load_music
   end
 
   def save_and_exit
