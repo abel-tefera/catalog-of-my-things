@@ -14,12 +14,12 @@ require 'json'
   end
 
   # method to get data from json file
-  def load_data
+  def load_game_json
     games = JSON.parse(fetch_data('games'))
     authors = JSON.parse(fetch_data('authors'))
 
     games.each do |game|
-      @games << Game.new(game['publish_date'], game[' multiplayer'], game['last_played_at'])
+      @games << Game.new(game['publish_date'], game['multiplayer'], game['last_played_at'])
     end
 
     authors.each do |author|
@@ -45,10 +45,11 @@ require 'json'
     last_played_at = gets.chomp
 
     game = Game.new(publish_date, multiplayer, last_played_at)
-    @game << game
+    @games << game
 
     author = Author.new(first_name, last_name)
     author.add_item(game)
+
     @authors << author
 
     puts 'Game created successfully.'
@@ -59,11 +60,9 @@ require 'json'
     all_games = []
 
     @games.each do |game|
-      all_games << { 'id' => game.id, 'publish_date' => game.publish_date, 'multiplayer' => game.multiplayer, 'last_played_at' => game.last_played_at }
+      all_games << { 'publish_date' => game.publish_date, 'multiplayer' => game.multiplayer, 'last_played_at' => game.last_played_at }
     end
     File.write('db/games.json', JSON.pretty_generate(all_games))
-      all_games << { 'title' => book.title, 'author' => book.author }
-
   end
 
   #method to save author
@@ -71,7 +70,37 @@ require 'json'
     all_authors = []
 
     @authors.each do |author|
-    all_authors << { 'first Name' => author.first_name, 'last Name' => author.last_name }
+    all_authors << { 'id' => author.id, 'first_name' => author.first_name, 'last_name' => author.last_name }
     end
     File.write('db/authors.json', JSON.pretty_generate(all_authors))
+  end
+
+  #method to save author and game
+  def save_author_and_game
+    save_author
+    save_game
+  end
+
+  # Method to list all authors
+  def list_all_authors
+    return puts 'There are no author in the collection yet!' if @authors.empty?
+    @authors.each do |author|
+      puts '------------------------------'
+      puts "Id: #{author.id} "
+      puts "Fist Name: #{author.first_name} "
+      puts "Last Name: #{author.last_name}"
+      puts '------------------------------'
+    end
+  end
+
+  # Method to list all games
+  def list_all_games
+    return puts 'There are No game in the collection yet!' if @games.empty?
+    @games.each do |game|
+      puts '------------------------------'
+      puts "Published date: #{game.publish_date} "
+      puts "Multiplayer: #{game.multiplayer}"
+      puts "Last played date: #{game.last_played_at}"
+      puts '------------------------------'
+    end
   end
