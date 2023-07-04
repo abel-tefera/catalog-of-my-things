@@ -25,6 +25,28 @@ def load_books_json
   end
 end
 
+def save_book
+  books_arr = []
 
+  @books.each do |book|
+    books_arr << { 'id' => book.id,
+                   'publisher' => book.publisher,
+                   'cover_state' => book.cover_state,
+                   'published_at' => book.publish_date }
+  end
+
+  File.write('db/books.json', JSON.pretty_generate(books_arr))
+end
+
+def save_label
+  labels_arr = []
+
+  @labels.each do |label|
+    labels_arr << { 'title' => label.title,
+                    'color' => label.color }
+  end
+
+  File.write('db/labels.json', JSON.pretty_generate(labels_arr))
+end
 
 
