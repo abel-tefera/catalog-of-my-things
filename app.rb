@@ -1,3 +1,5 @@
+require_relative 'books_management'
+
 class App
   attr_accessor :books, :albums, :games
 
@@ -5,10 +7,7 @@ class App
     @books = []
     @albums = []
     @games = []
-  end
-
-  def list_books
-    puts 'Feature loading...'
+    @labels = []
   end
 
   def list_albums
@@ -23,19 +22,11 @@ class App
     puts 'Feature loading...'
   end
 
-  def list_labels
-    puts 'Feature loading...'
-  end
-
   def list_authors
     puts 'Feature loading...'
   end
 
   def list_sources
-    puts 'Feature loading...'
-  end
-
-  def add_book
     puts 'Feature loading...'
   end
 
@@ -45,6 +36,23 @@ class App
 
   def add_game
     puts 'Feature loading...'
+  end
+
+  def fetch_json_files
+    puts 'Loading json files..'
+    load_books_json
+  end
+
+  def save_and_exit
+    puts 'Goodbye'
+
+    # save_books
+
+    # save_music
+
+    # save_games
+
+    exit
   end
 
   def invalid_option
