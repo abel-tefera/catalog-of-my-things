@@ -18,7 +18,6 @@ class App
   end
 
   def list_games
-    puts 'Feature loading...'
     list_all_games
   end
 
@@ -27,7 +26,6 @@ class App
   end
 
   def list_authors
-    puts 'Feature loading...'
     list_all_authors
   end
 
@@ -40,7 +38,6 @@ class App
   end
 
   def add_game
-    puts 'Feature loading...'
     create_game
   end
 
