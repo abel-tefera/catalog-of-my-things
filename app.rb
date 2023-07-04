@@ -13,17 +13,17 @@ class App
     @authors = []
   end
 
-  def list_albums
-    puts 'Feature loading...'
-  end
+  # def list_albums
+  #   puts 'Feature loading...'
+  # end
 
   def list_games
     puts 'Feature loading...'
   end
 
-  def list_genres
-    puts 'Feature loading...'
-  end
+  # def list_genres
+  #   puts 'Feature loading...'
+  # end
 
   def list_authors
     puts 'Feature loading...'

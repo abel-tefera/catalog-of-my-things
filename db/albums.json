@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "id": 755,
+    "genre_id": 2,
+    "publish_date": "2020/05/03",
+    "archived": false,
+    "on_spotify": false
+  },
+  {
+    "id": 310,
+    "genre_id": 2,
+    "publish_date": "30",
+    "archived": false,
+    "on_spotify": false
+  },
+  {
+    "id": 478,
+    "genre_id": 2,
+    "publish_date": "2020/09/82",
+    "archived": false,
+    "on_spotify": false
+  }
+]
