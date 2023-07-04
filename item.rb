@@ -1,3 +1,4 @@
+require 'date'
 class Item
   attr_reader :id, :archived, :genre, :author, :source, :label
   attr_accessor :publish_date
@@ -30,10 +31,11 @@ class Item
     @archived = true
   end
 
-  private
+  # private
 
   def can_be_archived?()
-    cuttoff_date = 10.years.ago
+    current_date = Date.today
+    cuttoff_date = current_date - (10 * 365)
     @publish_date < cuttoff_date
   end
 end
