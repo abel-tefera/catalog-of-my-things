@@ -52,7 +52,7 @@ end
 
 def collect_inputs
   print 'What is the publish date(YYYY-MM-DD): '
-  date = gets.chop
+  date = gets.chomp
   puts "\n"
 
   puts 'Select a genre from the following list by number'
