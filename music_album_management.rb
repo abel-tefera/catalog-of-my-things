@@ -23,11 +23,9 @@ def load_music
 
   albums.each do |album|
     date_string = album['publish_date']
-    year = date_string[0, 4].to_i
-    month = date_string[5, 7].to_i
-    day = date_string[8, 10].to_i
+    publish_date = Date.parse(date_string)
 
-    music_album = MusicAlbum.new(Date.new(year, month, day), on_spotify: album['on_spotify'])
+    music_album = MusicAlbum.new(publish_date, on_spotify: album['on_spotify'])
     genre = @genres.find { |gen| gen.id == album['genre_id'] }
     genre.add_item(music_album)
     # Decide if to archive or not and assign archive attribute

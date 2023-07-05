@@ -1,16 +1,23 @@
 [
   {
-    "id": 192,
+    "id": 15,
     "genre_id": 2,
     "publish_date": "2021-05-01",
     "archived": false,
     "on_spotify": true
   },
   {
-    "id": 921,
+    "id": 271,
     "genre_id": 3,
     "publish_date": "1980-07-09",
     "archived": true,
+    "on_spotify": true
+  },
+  {
+    "id": 472,
+    "genre_id": 3,
+    "publish_date": "2020-09-10",
+    "archived": false,
     "on_spotify": true
   }
 ]
