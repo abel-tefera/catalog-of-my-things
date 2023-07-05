@@ -30,7 +30,7 @@ def load_music
     music_album = MusicAlbum.new(Date.new(year, month, day), on_spotify: album['on_spotify'])
     genre = @genres.find { |gen| gen.id == album['genre_id'] }
     genre.add_item(music_album)
-    # Determine if to archive or not
+    # Decide if to archive or not and assign archive attribute
     music_album.move_to_archive
     @albums << music_album
   end
@@ -49,18 +49,8 @@ def list_genres
   @genres.each { |genre| puts "ID: #{genre.id}, Name: #{genre.name}" }
 end
 
-# def validate_date(date_string)
-#   begin
-#     Date.parse(date_string)
-#     return true
-#   rescue ArgumentError
-#     return false
-#   end
-# end
-
 def date_valid?(date)
   format = '%Y-%m-%d'
-  # format = '%04Y-%02m-%02d'
   DateTime.strptime(date, format)
   true
 rescue ArgumentError
@@ -126,7 +116,7 @@ def add_album
   # Assign genre
   @genres[inputs[1]].add_item(music_album)
 
-  # Determine if to archive or not
+  # Decide if to archive or not and assign archive attribute
   music_album.move_to_archive
 
   save_albums
