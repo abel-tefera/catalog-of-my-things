@@ -1,65 +1,79 @@
 [
   {
-    "id": 422,
+    "id": 89,
     "genre_id": 2,
     "publish_date": "2021-05-01",
     "archived": false,
     "on_spotify": true
   },
   {
-    "id": 371,
+    "id": 359,
     "genre_id": 3,
     "publish_date": "1980-07-09",
     "archived": true,
     "on_spotify": true
   },
   {
-    "id": 369,
+    "id": 506,
     "genre_id": 3,
     "publish_date": "1980-04-02",
     "archived": false,
     "on_spotify": false
   },
   {
-    "id": 530,
+    "id": 895,
     "genre_id": 2,
     "publish_date": "2023-01-02",
     "archived": false,
     "on_spotify": true
   },
   {
-    "id": 207,
+    "id": 896,
     "genre_id": 1,
     "publish_date": "2020-06-05",
     "archived": false,
     "on_spotify": false
   },
   {
-    "id": 988,
+    "id": 865,
     "genre_id": 2,
     "publish_date": "2020-12-25",
     "archived": false,
     "on_spotify": true
   },
   {
-    "id": 540,
+    "id": 725,
     "genre_id": 2,
     "publish_date": "2013-09-12",
     "archived": false,
     "on_spotify": false
   },
   {
-    "id": 90,
+    "id": 834,
     "genre_id": 3,
     "publish_date": "2014-12-19",
     "archived": false,
     "on_spotify": false
   },
   {
-    "id": 313,
+    "id": 529,
     "genre_id": 2,
     "publish_date": "1983-07-09",
     "archived": true,
     "on_spotify": true
+  },
+  {
+    "id": 609,
+    "genre_id": 3,
+    "publish_date": "2012-08-03",
+    "archived": true,
+    "on_spotify": true
+  },
+  {
+    "id": 779,
+    "genre_id": 2,
+    "publish_date": "2016-08-03",
+    "archived": false,
+    "on_spotify": false
   }
 ]

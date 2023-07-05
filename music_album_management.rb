@@ -57,7 +57,7 @@ rescue ArgumentError
   false
 end
 
-def collect_inputs
+def collect_date
   date = ''
   until date_valid?(date)
     print 'What is the publish date(YYYY-MM-DD): '
@@ -65,11 +65,20 @@ def collect_inputs
   end
   puts "\n"
 
-  puts 'Select a genre from the following list by number'
-  @genres.each_with_index do |genre, index|
-    puts "#{index}) #{genre.name}"
+  date
+end
+
+def collect_inputs
+  date = collect_date
+
+  genre = ''
+  until (0..@genres.length - 1).include?(genre)
+    puts 'Select a genre from the following list by number'
+    @genres.each_with_index do |gen, index|
+      puts "#{index}) #{gen.name}"
+    end
+    genre = gets.chomp.to_i
   end
-  genre = gets.chomp.to_i
   puts "\n"
 
   on_spotify = ''
