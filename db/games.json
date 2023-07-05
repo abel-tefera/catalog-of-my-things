@@ -1,0 +1,32 @@
+[
+  {
+    "publish_date": "12/02/2002",
+    "multiplayer": null,
+    "last_played_at": "12/02/2020"
+  },
+  {
+    "publish_date": "11/01/2020",
+    "multiplayer": "3",
+    "last_played_at": "11/11/2022"
+  },
+  {
+    "publish_date": "10/01/1998",
+    "multiplayer": "1",
+    "last_played_at": "10/01/2023"
+  },
+  {
+    "publish_date": "1/11/2000",
+    "multiplayer": "2",
+    "last_played_at": "1/11/2023"
+  },
+  {
+    "publish_date": "1/1/2020",
+    "multiplayer": "5",
+    "last_played_at": "1/1/2022"
+  },
+  {
+    "publish_date": "4/07/2000",
+    "multiplayer": "7",
+    "last_played_at": "4/07/2020"
+  }
+]
