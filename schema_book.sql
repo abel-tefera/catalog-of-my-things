@@ -15,7 +15,6 @@ CREATE TABLE labels(
     id int generated always as identity,
     title varchar(255),
     color varchar(255),
-    publish_date date,
     primary key (id)
 );
 
