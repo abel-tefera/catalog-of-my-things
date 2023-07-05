@@ -71,10 +71,10 @@ def collect_inputs
   date = collect_date
 
   genre = ''
-  until (0..@genres.length - 1).include?(genre)
+  until (1..@genres.length).include?(genre)
     puts 'Select a genre from the following list by number'
     @genres.each_with_index do |gen, index|
-      puts "#{index}) #{gen.name}"
+      puts "#{index + 1}) #{gen.name}"
     end
     genre = gets.chomp.to_i
   end
@@ -114,7 +114,7 @@ def add_album
   end
 
   # Assign genre
-  @genres[inputs[1]].add_item(music_album)
+  @genres[inputs[1] - 1].add_item(music_album)
 
   # Decide if to archive or not and assign archive attribute
   music_album.move_to_archive
