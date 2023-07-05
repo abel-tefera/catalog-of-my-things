@@ -10,7 +10,6 @@
     - [Setup](#setup)
     - [Run Tests](#run-tests)
   - [👥 Authors ](#-authors-)
-    - [👤 **Abel Tefera**:](#-Abel-tefera)
 - [🔭 Future Features:](#-future-features)
   - [🤝 Contributing ](#-contributing-)
   - [⭐️ Show your support ](#️-show-your-support-)
@@ -103,7 +102,7 @@ rspec spec
 - Twitter: [@twitterhandle](https://twitter.com/HarrietOteng1)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/harriet-oteng/)
 
-👤 **Fatihah Oduwole**
+### 👤 **Fatihah Oduwole**:
 
 - GitHub: [@jeddaa](https://github.com/jeddaa)
 - Twitter: [@\_jeddaah](https://twitter.com/_jeddaah)
