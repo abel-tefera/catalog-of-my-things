@@ -102,14 +102,14 @@ end
 
 def add_album
   inputs = collect_inputs
-  date = Date.parse(inputs[0])
+  publish_date = Date.parse(inputs[0])
 
   case inputs[2]
   when 'n'
-    music_album = MusicAlbum.new(date, on_spotify: false)
+    music_album = MusicAlbum.new(publish_date, on_spotify: false)
     @albums << music_album
   when 'y'
-    music_album = MusicAlbum.new(date, on_spotify: true)
+    music_album = MusicAlbum.new(publish_date, on_spotify: true)
     @albums << music_album
   end
 
