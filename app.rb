@@ -1,4 +1,5 @@
 require_relative 'books_management'
+require_relative 'game_management'
 require_relative 'music_album_management'
 
 class App
@@ -9,15 +10,24 @@ class App
     @albums = []
     @games = []
     @labels = []
+    @authors = []
     @genres = []
+  end
+
+  def list_albums
+    puts 'Feature loading...'
   end
 
   def list_games
     puts 'Feature loading...'
   end
 
-  def list_authors
+  def list_genres
     puts 'Feature loading...'
+  end
+
+  def list_authors
+    list_all_authors
   end
 
   def list_sources
@@ -25,7 +35,7 @@ class App
   end
 
   def add_game
-    puts 'Feature loading...'
+    create_game
   end
 
   def fetch_json_files
