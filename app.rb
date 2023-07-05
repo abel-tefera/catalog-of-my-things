@@ -10,20 +10,11 @@ class App
     @games = []
     @labels = []
     @genres = []
-    @authors = []
   end
-
-  # def list_albums
-  #   puts 'Feature loading...'
-  # end
 
   def list_games
     puts 'Feature loading...'
   end
-
-  # def list_genres
-  #   puts 'Feature loading...'
-  # end
 
   def list_authors
     puts 'Feature loading...'
@@ -32,10 +23,6 @@ class App
   def list_sources
     puts 'Feature loading...'
   end
-
-  # def add_album
-  #   puts 'Feature loading...'
-  # end
 
   def add_game
     puts 'Feature loading...'
@@ -48,13 +35,6 @@ class App
 
   def save_and_exit
     puts 'Goodbye'
-
-    # save_books
-
-    # save_music
-
-    # save_games
-
     exit
   end
 
