@@ -49,8 +49,18 @@ def list_genres
   @genres.each { |genre| puts "ID: #{genre.id}, Name: #{genre.name}" }
 end
 
+# def validate_date(date_string)
+#   begin
+#     Date.parse(date_string)
+#     return true
+#   rescue ArgumentError
+#     return false
+#   end
+# end
+
 def date_valid?(date)
   format = '%Y-%m-%d'
+  # format = '%04Y-%02m-%02d'
   DateTime.strptime(date, format)
   true
 rescue ArgumentError
@@ -64,7 +74,6 @@ def collect_date
     date = gets.chomp
   end
   puts "\n"
-
   date
 end
 
@@ -103,17 +112,14 @@ end
 
 def add_album
   inputs = collect_inputs
-
-  year = inputs[0][0, 4].to_i
-  month = inputs[0][5, 7].to_i
-  day = inputs[0][8, 10].to_i
+  date = Date.parse(inputs[0])
 
   case inputs[2]
   when 'n'
-    music_album = MusicAlbum.new(Date.new(year, month, day), on_spotify: false)
+    music_album = MusicAlbum.new(date, on_spotify: false)
     @albums << music_album
   when 'y'
-    music_album = MusicAlbum.new(Date.new(year, month, day), on_spotify: true)
+    music_album = MusicAlbum.new(date, on_spotify: true)
     @albums << music_album
   end
 
