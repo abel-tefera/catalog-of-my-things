@@ -1,6 +1,7 @@
 require_relative 'music_album'
 require_relative 'genre'
 require 'json'
+require 'date'
 
 def fetch_data(file)
   if File.exist?("db/#{file}.json")
@@ -14,7 +15,6 @@ end
 
 def load_music
   genres = JSON.parse(fetch_data('genres'))
-
   albums = JSON.parse(fetch_data('albums'))
 
   genres.each do |genre|
@@ -22,9 +22,16 @@ def load_music
   end
 
   albums.each do |album|
-    music_album = MusicAlbum.new(album['publish_date'], on_spotify: album['on_spotify'])
-    genre = @genres.find { |genre| genre.id == album['genre_id'] }
+    date_string = album['publish_date']
+    year = date_string[0, 4].to_i
+    month = date_string[5, 7].to_i
+    day = date_string[8, 10].to_i
+
+    music_album = MusicAlbum.new(Date.new(year, month, day), on_spotify: album['on_spotify'])
+    genre = @genres.find { |gen| gen.id == album['genre_id'] }
     genre.add_item(music_album)
+    # Determine if to archive or not
+    music_album.move_to_archive
     @albums << music_album
   end
 end
@@ -32,8 +39,9 @@ end
 def list_albums
   puts 'LIST OF ALBUMS'
   @albums.each do |album|
-    genre = @genres.find { |genre| genre.id == album.genre.id }
-    puts "ID: #{album.id}, Genre: #{genre.name}"
+    genre = @genres.find { |gen| gen.id == album.genre.id }
+    puts "ID: #{album.id}, Genre: #{genre.name}, Publish Date: #{album.publish_date}, \
+    Archived: #{album.archived}, On Spotify: #{album.on_spotify}"
   end
 end
 
@@ -42,8 +50,8 @@ def list_genres
   @genres.each { |genre| puts "ID: #{genre.id}, Name: #{genre.name}" }
 end
 
-def get_inputs
-  print 'What is the publish date(YYYY/MM/DD): '
+def collect_inputs
+  print 'What is the publish date(YYYY-MM-DD): '
   date = gets.chop
   puts "\n"
 
@@ -61,35 +69,39 @@ def save_albums
   updated_albums = []
 
   @albums.each do |album|
-    updated_albums << { 'id' => album.id, 'genre_id' => album.genre.id, 'publish_date' => album.publish_date, 'archived' => album.archived, 'on_spotify' => album.on_spotify }
+    updated_albums << { 'id' => album.id, 'genre_id' => album.genre.id, 'publish_date' => album.publish_date.to_s,
+                        'archived' => album.archived, 'on_spotify' => album.on_spotify }
   end
 
   File.write('db/albums.json', JSON.pretty_generate(updated_albums))
 end
 
 def add_album
-  inputs = get_inputs
+  inputs = collect_inputs
+
+  year = inputs[0][0, 4].to_i
+  month = inputs[0][5, 7].to_i
+  day = inputs[0][8, 10].to_i
+
   print 'Is this album on spotify? [Y/N]: '
   on_spotify = gets.chomp.downcase
 
   case on_spotify
   when 'n'
-    music_album = MusicAlbum.new(inputs[0], on_spotify: false)
+    music_album = MusicAlbum.new(Date.new(year, month, day), on_spotify: false)
     @albums << music_album
   when 'y'
-    music_album = MusicAlbum.new(inputs[0], on_spotify: true)
+    music_album = MusicAlbum.new(Date.new(year, month, day), on_spotify: true)
     @albums << music_album
   end
 
   # Assign genre
   @genres[inputs[1]].add_item(music_album)
-  
+
   # Determine if to archive or not
-  # music_album.can_be_archived?
+  music_album.move_to_archive
 
   save_albums
-
   puts 'Music album added successfully'
   puts "\n"
 end
-

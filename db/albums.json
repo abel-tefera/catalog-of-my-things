@@ -1,23 +1,51 @@
 [
   {
+    "id": 872,
+    "genre_id": 2,
+    "publish_date": "2021-05-01",
+    "archived": false,
+    "on_spotify": true
+  },
+  {
+    "id": 275,
+    "genre_id": 1,
+    "publish_date": "1990-03-01",
+    "archived": true,
+    "on_spotify": true
+  },
+  {
+    "id": 537,
+    "genre_id": 3,
+    "publish_date": "1980-07-09",
+    "archived": true,
+    "on_spotify": true
+  },
+  {
+    "id": 2,
+    "genre_id": 1,
+    "publish_date": "2010-04-02",
+    "archived": true,
+    "on_spotify": true
+  },
+  {
+    "id": 846,
+    "genre_id": 3,
+    "publish_date": "1980-04-02",
+    "archived": false,
+    "on_spotify": false
+  },
+  {
+    "id": 133,
+    "genre_id": 2,
+    "publish_date": "2020-09-03",
+    "archived": false,
+    "on_spotify": true
+  },
+  {
     "id": 755,
     "genre_id": 2,
-    "publish_date": "2020/05/03",
+    "publish_date": "2023-01-02",
     "archived": false,
-    "on_spotify": false
-  },
-  {
-    "id": 310,
-    "genre_id": 2,
-    "publish_date": "30",
-    "archived": false,
-    "on_spotify": false
-  },
-  {
-    "id": 478,
-    "genre_id": 2,
-    "publish_date": "2020/09/82",
-    "archived": false,
-    "on_spotify": false
+    "on_spotify": true
   }
 ]

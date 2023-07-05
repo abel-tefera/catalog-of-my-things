@@ -42,7 +42,6 @@ class App
   end
 
   def fetch_json_files
-    puts 'Loading json files..'
     load_books_json
     load_music
   end
