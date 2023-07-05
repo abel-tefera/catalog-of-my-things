@@ -40,8 +40,7 @@ def list_albums
   puts 'LIST OF ALBUMS'
   @albums.each do |album|
     genre = @genres.find { |gen| gen.id == album.genre.id }
-    puts "ID: #{album.id}, Genre: #{genre.name}, Publish Date: #{album.publish_date}, \
-    Archived: #{album.archived}, On Spotify: #{album.on_spotify}"
+    puts "ID: #{album.id}, Genre: #{genre.name}, Archived: #{album.archived}, On Spotify: #{album.on_spotify}"
   end
 end
 
@@ -50,9 +49,20 @@ def list_genres
   @genres.each { |genre| puts "ID: #{genre.id}, Name: #{genre.name}" }
 end
 
+def date_valid?(date)
+  format = '%Y-%m-%d'
+  DateTime.strptime(date, format)
+  true
+rescue ArgumentError
+  false
+end
+
 def collect_inputs
-  print 'What is the publish date(YYYY-MM-DD): '
-  date = gets.chomp
+  date = ''
+  until date_valid?(date)
+    print 'What is the publish date(YYYY-MM-DD): '
+    date = gets.chomp
+  end
   puts "\n"
 
   puts 'Select a genre from the following list by number'
@@ -82,7 +92,7 @@ def add_album
   year = inputs[0][0, 4].to_i
   month = inputs[0][5, 7].to_i
   day = inputs[0][8, 10].to_i
-
+  
   print 'Is this album on spotify? [Y/N]: '
   on_spotify = gets.chomp.downcase
 
