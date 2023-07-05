@@ -72,7 +72,13 @@ def collect_inputs
   genre = gets.chomp.to_i
   puts "\n"
 
-  [date, genre]
+  on_spotify = ''
+  until %w[n y].include?(on_spotify)
+    print 'Is this album on spotify? [y/n]: '
+    on_spotify = gets.chomp.downcase
+  end
+
+  [date, genre, on_spotify]
 end
 
 def save_albums
@@ -92,11 +98,8 @@ def add_album
   year = inputs[0][0, 4].to_i
   month = inputs[0][5, 7].to_i
   day = inputs[0][8, 10].to_i
-  
-  print 'Is this album on spotify? [Y/N]: '
-  on_spotify = gets.chomp.downcase
 
-  case on_spotify
+  case inputs[2]
   when 'n'
     music_album = MusicAlbum.new(Date.new(year, month, day), on_spotify: false)
     @albums << music_album
