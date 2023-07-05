@@ -12,3 +12,5 @@ CREATE TABLE genres (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   genre_name VARCHAR(50) NOT NULL,
 );
+
+CREATE INDEX genre_idx ON music_albums (genre_id);
