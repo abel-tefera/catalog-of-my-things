@@ -1,23 +1,20 @@
 require_relative 'book'
 require_relative 'label'
+require_relative 'util'
 require 'json'
 
-def fetch_json(file)
-  if File.exist?("db/#{file}.json")
-    File.read("db/#{file}.json")
-  else
-    placeholder = [].to_json
-    File.write("db/#{file}.json", placeholder)
-    placeholder
-  end
-end
 
 def load_books_json
-  books = JSON.parse(fetch_json('books'))
-  labels = JSON.parse(fetch_json('labels'))
+  books = JSON.parse(fetch_data('books'))
+  labels = JSON.parse(fetch_data('labels'))
 
   books.each do |book|
-    @books << Book.new(book['publisher'], book['cover_state'], book['published_at'])
+    date_string = book['publish_date']
+    year = date_string[0, 4].to_i
+    month = date_string[5, 7].to_i
+    day = date_string[8, 10].to_i
+
+    @books << Book.new(book['publisher'], book['cover_state'], Date.new(year, month, day))
   end
 
   labels.each do |label|
@@ -32,7 +29,7 @@ def save_book
     books_arr << { 'id' => book.id,
                    'publisher' => book.publisher,
                    'cover_state' => book.cover_state,
-                   'published_at' => book.publish_date }
+                   'publish_date' => book.publish_date }
   end
 
   File.write('db/books.json', JSON.pretty_generate(books_arr))
@@ -62,16 +59,22 @@ def add_book
   puts 'What is the condition of the cover? (good/bad)'
   cover_state = gets.chomp.downcase
 
-  puts 'On what date was the book published?'
-  published_at = gets.chomp
+  publish_date = ''
+  until date_valid?(publish_date)
+    puts 'On what date was the book published? (YYYY-MM-DD)'
+    publish_date = gets.chomp
+  end
 
-  book = Book.new(publisher, cover_state, published_at)
+  book = Book.new(publisher, cover_state, Date.parse(publish_date))
   @books << book
 
   label = Label.new(title, color)
   label.add_item(book)
 
   @labels << label
+
+  book.move_to_archive
+
 
   save_book
 

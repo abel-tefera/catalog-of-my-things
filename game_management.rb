@@ -1,17 +1,7 @@
 require_relative 'game'
 require_relative 'author'
+require_relative 'util'
 require 'json'
-
-# method to fetch data from json file
-def fetch_data(file_name)
-  if File.exist?("db/#{file_name}.json")
-    File.read("db/#{file_name}.json")
-  else
-    empty_json = [].to_json
-    File.write("db/#{file_name}.json", empty_json)
-    empty_json
-  end
-end
 
 # method to get data from json file
 def load_game_json
