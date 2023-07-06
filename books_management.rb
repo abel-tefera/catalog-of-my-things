@@ -45,7 +45,7 @@ def save_label
   File.write('db/labels.json', JSON.pretty_generate(labels_arr))
 end
 
-def add_book
+def add_book # rubocop:disable Metrics/MethodLength
   puts 'What is the title of the book?'
   title = gets.chomp
 
@@ -75,7 +75,6 @@ def add_book
   book.move_to_archive
 
   save_book
-
   save_label
 
   puts 'Book created successfully!'
