@@ -7,7 +7,6 @@ CREATE TABLE games (
   archived BOOLEAN,
   author_id INT,
   FOREIGN KEY (author_id) REFERENCES authors(id)
-
 );
 
 -- create table authors

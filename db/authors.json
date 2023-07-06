@@ -1,22 +1,17 @@
 [
   {
-    "id": 664,
-    "first_name": "stephen",
-    "last_name": "king"
+    "id": 1,
+    "first_name": "Stephen",
+    "last_name": "King"
   },
   {
-    "id": 164,
-    "first_name": "jedda",
-    "last_name": "trial"
-  },
-  {
-    "id": 579,
-    "first_name": "task",
-    "last_name": "three"
-  },
-  {
-    "id": 269,
-    "first_name": "Final",
+    "id": 2,
+    "first_name": "Jedda",
     "last_name": "Trial"
+  },
+  {
+    "id": 3,
+    "first_name": "Harriet",
+    "last_name": "Oteng"
   }
 ]
