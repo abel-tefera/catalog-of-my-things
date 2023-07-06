@@ -1,7 +1,7 @@
 require_relative '../author'
 
 describe Author do
-  author = Author.new('John', 'Doe')
+  author = Author.new(1, 'John', 'Doe')
   context 'When creating a new author' do
     it 'should create an author with the correct first name' do
       expect(author.first_name).to eq('John')
