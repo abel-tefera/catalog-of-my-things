@@ -1,26 +1,32 @@
 [
   {
-    "id": 320,
-    "publisher": null,
-    "cover_state": null,
-    "published_at": null
-  },
-  {
-    "id": 682,
+    "id": 88,
     "publisher": "Mr. X",
     "cover_state": "bad",
-    "published_at": "2022/01/01"
+    "publish_date": "2022-01-01"
   },
   {
-    "id": 811,
-    "publisher": "fefew",
-    "cover_state": "vwevew",
-    "published_at": "vewv"
+    "id": 353,
+    "publisher": "Myself",
+    "cover_state": "bad",
+    "publish_date": "2022-01-01"
   },
   {
-    "id": 910,
+    "id": 18,
     "publisher": "Harriet",
     "cover_state": "good",
-    "published_at": "2020/08/04"
+    "publish_date": "2020-08-04"
+  },
+  {
+    "id": 344,
+    "publisher": "Mega Pub",
+    "cover_state": "good",
+    "publish_date": "2022-01-01"
+  },
+  {
+    "id": 772,
+    "publisher": "PubCompany",
+    "cover_state": "good",
+    "publish_date": "2022-01-01"
   }
 ]
