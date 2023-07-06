@@ -58,16 +58,6 @@ def save_game
   File.write('db/games.json', JSON.pretty_generate(all_games))
 end
 
-# method to save author
-def save_author
-  all_authors = []
-
-  @authors.each do |author|
-    all_authors << { 'id' => author.id, 'first_name' => author.first_name, 'last_name' => author.last_name }
-  end
-  File.write('db/authors.json', JSON.pretty_generate(all_authors))
-end
-
 def collect_input
   author = ''
   until (1..@authors.length).include?(author)
@@ -92,8 +82,11 @@ end
 def create_game
   inputs = collect_input
 
-  puts 'How many player is required:'
-  multiplayer = gets.chomp.to_i
+  multiplayer = 0
+  until multiplayer > 0
+    puts 'How many player is required (number must be greater than 0): '
+    multiplayer = gets.chomp.to_i
+  end
 
   last_played_string_date = ''
   until date_valid?(last_played_string_date)
