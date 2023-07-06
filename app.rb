@@ -30,13 +30,13 @@ class App
     create_game
   end
 
-  def fetch_json_files
+  def fetch_files
     load_books_json
     load_music
   end
 
   def save_and_exit
-    puts 'Goodbye'
+    puts 'Thank you for using this app. Goodbye!'
     exit
   end
 
@@ -52,10 +52,9 @@ class App
     puts '4 - List all genres'
     puts '5 - List all labels'
     puts '6 - List all authors'
-    puts '7 - List all sources'
-    puts '8 - Add a book'
-    puts '9 - Add a music album'
-    puts '10 - Add a game'
-    puts '11 - Exit'
+    puts '7 - Add a book'
+    puts '8 - Add a music album'
+    puts '9 - Add a game'
+    puts '10 - Exit'
   end
 end

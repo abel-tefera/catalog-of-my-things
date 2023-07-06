@@ -12,11 +12,10 @@ def manage_selection(app, option)
     4 => :list_genres,
     5 => :list_labels,
     6 => :list_authors,
-    7 => :list_sources,
-    8 => :add_book,
-    9 => :add_album,
-    10 => :add_game,
-    11 => :save_and_exit,
+    7 => :add_book,
+    8 => :add_album,
+    9 => :add_game,
+    10 => :save_and_exit,
     default: :invalid_option
   }
 
