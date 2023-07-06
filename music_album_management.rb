@@ -1,17 +1,8 @@
 require_relative 'music_album'
 require_relative 'genre'
+require_relative 'util'
 require 'json'
 require 'date'
-
-def fetch_data(file)
-  if File.exist?("db/#{file}.json")
-    File.read("db/#{file}.json")
-  else
-    empty_json = [].to_json
-    File.write("db/#{file}.json", empty_json)
-    empty_json
-  end
-end
 
 def load_music
   genres = JSON.parse(fetch_data('genres'))
@@ -47,14 +38,6 @@ end
 def list_genres
   puts 'LIST OF GENRES'
   @genres.each { |genre| puts "ID: #{genre.id}, Name: #{genre.name}" }
-end
-
-def date_valid?(date)
-  format = '%Y-%m-%d'
-  DateTime.strptime(date, format)
-  true
-rescue ArgumentError
-  false
 end
 
 def collect_date
