@@ -8,41 +8,42 @@ def load_game_json
   games = JSON.parse(fetch_data('games'))
   authors = JSON.parse(fetch_data('authors'))
 
-  games.each do |game|
-    @games << Game.new(game['publish_date'], game['multiplayer'], game['last_played_at'])
+  authors.each do |author|
+    @authors << Author.new(author['id'], author['first_name'], author['last_name'])
   end
 
-  authors.each do |author|
-    @authors << Author.new(author['first_name'], author['last_name'])
+  games.each do |game|
+    publish_date = Date.parse(game['publish_date'])
+    last_played_at = Date.parse(game['last_played_at'])
+    new_game = Game.new(publish_date, game['multiplayer'], last_played_at)
+    author = @authors.find { |auth| auth.id == game['author_id'] }
+
+    author.add_item(new_game)
+    # Decide if to archive or not and assign archive attribute
+    new_game.move_to_archive
+    @games << new_game
   end
 end
 
-# method to create a game
-def create_game
-  puts 'What is the first name of the author of the game:'
-  first_name = gets.chomp
+def load_music
+  genres = JSON.parse(fetch_data('genres'))
+  albums = JSON.parse(fetch_data('albums'))
 
-  puts 'What is the last name of the author of the game:'
-  last_name = gets.chomp
+  genres.each do |genre|
+    @genres << Genre.new(genre['id'], genre['name'])
+  end
 
-  puts 'What is the published date of the game:'
-  publish_date = gets.chomp
+  albums.each do |album|
+    date_string = album['publish_date']
+    publish_date = Date.parse(date_string)
 
-  puts 'How many player is required:'
-  multiplayer = gets.chomp
-
-  puts 'What was the game last played:'
-  last_played_at = gets.chomp
-
-  game = Game.new(publish_date, multiplayer, last_played_at)
-  @games << game
-
-  author = Author.new(first_name, last_name)
-  author.add_item(game)
-
-  @authors << author
-
-  puts 'Game created successfully.'
+    music_album = MusicAlbum.new(publish_date, on_spotify: album['on_spotify'])
+    genre = @genres.find { |gen| gen.id == album['genre_id'] }
+    genre.add_item(music_album)
+    # Decide if to archive or not and assign archive attribute
+    music_album.move_to_archive
+    @albums << music_album
+  end
 end
 
 # method to save game
@@ -50,26 +51,57 @@ def save_game
   all_games = []
 
   @games.each do |game|
-    all_games << { 'publish_date' => game.publish_date, 'multiplayer' => game.multiplayer,
-                   'last_played_at' => game.last_played_at }
+    all_games << { 'id' => game.id, 'publish_date' => game.publish_date.to_s, 'multiplayer' => game.multiplayer,
+                   'last_played_at' => game.last_played_at.to_s, 'archived' => game.archived,
+                   'author_id' => game.author.id }
   end
   File.write('db/games.json', JSON.pretty_generate(all_games))
 end
 
-# method to save author
-def save_author
-  all_authors = []
-
-  @authors.each do |author|
-    all_authors << { 'id' => author.id, 'first_name' => author.first_name, 'last_name' => author.last_name }
+def collect_input
+  author = ''
+  until (1..@authors.length).include?(author)
+    puts 'Select an author from the following list by number'
+    @authors.each_with_index do |auth, index|
+      puts "#{index + 1}) #{auth.first_name} #{auth.last_name}"
+    end
+    author = gets.chomp.to_i
   end
-  File.write('db/authors.json', JSON.pretty_generate(all_authors))
+
+  publish_string_date = ''
+  until date_valid?(publish_string_date)
+    print 'What is the publish date of the game(YYYY-MM-DD): '
+    publish_string_date = gets.chomp
+  end
+  publish_date = Date.parse(publish_string_date)
+
+  [author, publish_date]
 end
 
-# method to save author and game
-def save_author_and_game
-  save_author
+# method to create a game
+def create_game
+  inputs = collect_input
+
+  multiplayer = 0
+  until multiplayer.positive?
+    puts 'How many player is required (number must be greater than 0): '
+    multiplayer = gets.chomp.to_i
+  end
+
+  last_played_string_date = ''
+  until date_valid?(last_played_string_date)
+    print 'When was the game last played(YYYY-MM-DD): '
+    last_played_string_date = gets.chomp
+  end
+  last_played_at = Date.parse(last_played_string_date)
+
+  game = Game.new(inputs[1], multiplayer, last_played_at)
+  game.move_to_archive
+  @games << game
+
+  @authors[inputs[0] - 1].add_item(game)
   save_game
+  puts 'Game created successfully.'
 end
 
 # Method to list all authors
