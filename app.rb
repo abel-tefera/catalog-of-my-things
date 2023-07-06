@@ -15,15 +15,11 @@ class App
   end
 
   def list_games
-    puts 'Feature loading...'
+    list_all_games
   end
 
   def list_authors
     list_all_authors
-  end
-
-  def list_sources
-    puts 'Feature loading...'
   end
 
   def add_game
@@ -33,6 +29,7 @@ class App
   def fetch_files
     load_books_json
     load_music
+    load_game_json
   end
 
   def save_and_exit
