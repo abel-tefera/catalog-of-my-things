@@ -25,8 +25,8 @@ CREATE TABLE music_albums (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   genre_id INT REFERENCES genre(id) ON UPDATE CASCADE ON DELETE CASCADE,
   publish_data DATE NOT NULL,
-  archived BIT NOT NULL,
-  on_spotify BIT NOT NULL
+  archived BOOLEAN NOT NULL,
+  on_spotify BOOLEAN NOT NULL
 );
 
 -- Create genres table
