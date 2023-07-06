@@ -83,7 +83,7 @@ def create_game
   inputs = collect_input
 
   multiplayer = 0
-  until multiplayer > 0
+  until multiplayer.positive?
     puts 'How many player is required (number must be greater than 0): '
     multiplayer = gets.chomp.to_i
   end

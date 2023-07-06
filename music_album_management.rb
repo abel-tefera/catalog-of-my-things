@@ -74,7 +74,7 @@ def save_albums
   updated_albums = []
 
   @albums.each do |album|
-    updated_albums << { 'id' => album.id, 'genre_id' => album.genre.id, 'publish_date' => album.publish_date.to_s,
+    updated_albums << { 'id' => album.id, 'genre_id' => album.genre.id, 'publish_date' => album.publish_date,
                         'archived' => album.archived, 'on_spotify' => album.on_spotify }
   end
 
