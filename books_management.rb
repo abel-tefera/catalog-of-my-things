@@ -3,7 +3,6 @@ require_relative 'label'
 require_relative 'util'
 require 'json'
 
-
 def load_books_json
   books = JSON.parse(fetch_data('books'))
   labels = JSON.parse(fetch_data('labels'))
@@ -74,7 +73,6 @@ def add_book
   @labels << label
 
   book.move_to_archive
-
 
   save_book
 
