@@ -1,0 +1,18 @@
+[
+  {
+    "id": 607,
+    "publish_date": "1999-02-03",
+    "multiplayer": 4,
+    "last_played_at": "2020-01-04",
+    "archived": true,
+    "author_id": 1
+  },
+  {
+    "id": 992,
+    "publish_date": "2022-01-01",
+    "multiplayer": 2,
+    "last_played_at": "2023-07-02",
+    "archived": false,
+    "author_id": 2
+  }
+]
